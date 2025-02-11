@@ -26,6 +26,7 @@ jobs:
       run: go test -v ./...
 
     - name: Post blocks to a Slack channel
+      if: ${{ always()}}
       uses: slackapi/slack-github-action@v2.0.0
       with:
         method: chat.postMessage
