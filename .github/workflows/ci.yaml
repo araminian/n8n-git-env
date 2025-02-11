@@ -34,8 +34,3 @@ jobs:
         payload: |
             channel: ${{ secrets.SLACK_CHANNEL_ID }}
             text: "Service Foo Release result: ${{ job.status }}\n${{ github.event.head_commit.url }}"
-            blocks:
-            - type: "section"
-                text:
-                type: "mrkdwn"
-                text: "Service Foo Release result: ${{ job.status }}\n${{ github.event.head_commit.url }}"
