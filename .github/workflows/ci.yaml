@@ -33,4 +33,8 @@ jobs:
         token: ${{ secrets.SLACK_BOT_TOKEN }}
         payload: |
             channel: ${{ secrets.SLACK_CHANNEL_ID }}
-            text: "Service Foo Release result: ${{ job.status }}\n${{ github.event.head_commit.url }}"
+            text: |
+              :rocket: *Service Foo Release*
+              *Status*: ${{ job.status == 'success' && ':white_check_mark: Success' || ':x: Failure' }}
+              :github: <${{ github.event.head_commit.url }}|View Commit>
+              :timer_clock: Completed at `${{ needs.build.outputs.timestamp }}`
