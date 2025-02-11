@@ -36,4 +36,5 @@ jobs:
             text: |
               :rocket: *Service Foo Release*
               *Status*: ${{ job.status == 'success' && ':white_check_mark: Success' || ':x: Failure' }}
-              :github: <${{ github.event.head_commit.url }}|View Commit>
+              :link: <${{ github.event.head_commit.url }}|View Commit>
+              :mag: <${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}|View Workflow Logs>
