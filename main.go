@@ -42,7 +42,7 @@ func createProduct(c *fiber.Ctx) error {
 	if err := c.BodyParser(product); err != nil {
 		return c.Status(400).JSON(fiber.Map{"error": "Invalid product data"})
 	}
-
+	product.Price = product.Price + 20.0
 	products = append(products, *product)
 	return c.Status(201).JSON(product)
 }

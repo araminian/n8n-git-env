@@ -49,9 +49,7 @@ func TestGetProduct(t *testing.T) {
 	err = json.Unmarshal(body, &product)
 	assert.NoError(t, err)
 	assert.Equal(t, "1", product.ID)
-	// Let's Break the test
-	assert.Equal(t, "Laptop Broken", product.Name)
-	//assert.Equal(t, "Laptop", product.Name)
+	assert.Equal(t, "Laptop", product.Name)
 
 	// Test non-existing product
 	resp, err = app.Test(httptest.NewRequest("GET", "/products/999", nil))
@@ -84,6 +82,5 @@ func TestCreateProduct(t *testing.T) {
 	assert.NoError(t, err)
 	assert.Equal(t, newProduct.ID, createdProduct.ID)
 	assert.Equal(t, newProduct.Name, createdProduct.Name)
-	//assert.Equal(t, newProduct.Price, createdProduct.Price)
-	assert.Equal(t, newProduct.Price, createdProduct.Price+1.0)
+	assert.Equal(t, newProduct.Price, createdProduct.Price)
 }
