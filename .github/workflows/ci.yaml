@@ -33,6 +33,8 @@ jobs:
         token: ${{ secrets.SLACK_BOT_TOKEN }}
         payload: |
             channel: ${{ secrets.SLACK_CHANNEL_ID }}
+            unfurl_links: false
+            unfurl_media: false
             text: |
               :rocket: *Service Foo Release*
               *Status*: ${{ job.status == 'success' && ':white_check_mark: Success' || ':x: Failure' }}
